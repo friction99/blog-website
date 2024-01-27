@@ -5,7 +5,6 @@ import Home from "./Pages/Home";
 import Projects from "./Pages/Projects";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
-import Header from "./Components/Header";
 function App() {
   const appRouter = createBrowserRouter([
     {
