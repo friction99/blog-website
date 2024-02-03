@@ -2,6 +2,7 @@ import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import Header from "../Components/Header";
 import { Link,useNavigate} from "react-router-dom";
 import { useState } from "react";
+import FooterComp from "../Components/Footer";
 const SignUp = () => {
   const [formData,setFormData] = useState();
   const [errorMessage,setErrorMessage]=useState(null);
@@ -75,8 +76,8 @@ const SignUp = () => {
               </Button>
             </form>
             <div className="flex flex-rol gap-2 mt-2">
-              <p>Don't have an account?</p>
-              <Link to="/SignIn" color="success">SignIn</Link>
+              <p>Have an account?</p>
+              <Link to="/SignIn">SignIn</Link>
             </div>
             {
               errorMessage && (
@@ -88,8 +89,8 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <FooterComp/>
     </div>
-
   )
 }
 export default SignUp;
