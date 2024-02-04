@@ -6,7 +6,10 @@ const router = express.Router();
 router.post('/signup',async (req,res,next)=>{
     const {username,email,password}=req.body;
     if(!username||!email||!password||email===''||username===''||password===''){
-        next(errorHandler(400,"All fields are required"));
+        const err = new Error();
+        err.statusCode = 400;
+        err.message = "All fields are required";
+        next(err);
     }
     const hashedPassword = bcryptjs.hashSync(password);
     const newUser = new User({
@@ -28,7 +31,10 @@ router.post('/signup',async (req,res,next)=>{
 router.post('/signin',async(req,res,next)=>{
     const {email,password} = req.body;
     if(!email||!password||email===''||password===''){
-        next(errorHandler(400,'All fields are required'));
+       const err = new Error;
+       err.statusCode = 400;
+       err.message="All fields are required";
+       next(err);
     }
     try{
         const validUser = await User.findOne({email});
